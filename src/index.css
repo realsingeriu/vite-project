@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Single+Day&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 
 /* 초기화 코드 */
 * {
@@ -9,5 +9,6 @@
 
 body {
 	
-	font-family: 'Single Day', cursive;
+	font-family: 'Bagel Fat One', cursive;
+	font-weight: 200;
 }
