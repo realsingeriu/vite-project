@@ -94,7 +94,7 @@ function TaskForm({setTasks}) {
           <strong>Memo:</strong> {taskData.memo}
         </div>
       )}
-			
+
 		</header>
 	);
 }

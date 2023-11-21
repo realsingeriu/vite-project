@@ -3,7 +3,7 @@ import deleteIcon from '../assets/delete.png';
 import React, {useState} from 'react';
 import './TaskCard.css';
 
-export default function TaskCard({ title, tags, handleDelete, index, handleMemoChange}) {
+export default function TaskCard({ title, tags, handleDelete, index, handleMemo}) {
 	
 	const [editMemo, setEditMemo] = useState(false);
   const [memo, setMemo] = useState('');
@@ -16,6 +16,7 @@ export default function TaskCard({ title, tags, handleDelete, index, handleMemoC
     setEditMemo(false);
     handleMemoChange(index, memo);
   };
+	
 	return (
 		<article className='task_card'>
 			<p className='task_text'>{title}</p>
@@ -44,10 +45,10 @@ export default function TaskCard({ title, tags, handleDelete, index, handleMemoC
              <div onClick={handleMemoEdit}>
                 {memo ? (
                   <>
-                    <strong>Memo:</strong> {memo}
+                    <strong>내용:</strong> {memo}
                   </>
                 ) : (
-                  'Add a memo...'
+                  '메모 추가'
                 )}
               </div>
             </>
