@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Tag from './Tag';
 import './TaskForm.css';
 
-function TaskForm() {
+function TaskForm({setTasks}) {
 	const [taskData, setTaskData] = useState({
 		task: '',
 		status: 'todo',
@@ -19,6 +19,15 @@ function TaskForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(taskData);
+		setTasks((prev) => {
+			return [...prev, taskData]; // 새 task 추가 
+		});
+		// TaskData를 리셋하기 
+		setTaskData({
+			task: '',
+			status: 'todo',
+			tags: [],
+		});
 	};
 
 	//선택한 태그를 tags에 추가한다. (있으면 삭제 없으면 추가)
@@ -35,7 +44,7 @@ function TaskForm() {
 		}
 	};
 
-		//선택된 태그아이템중 tag가 있으면 true 없으면 false
+		// 현재 선택된 태그아이템중 tag가 있으면 true 없으면 false 반환
 		const checkTag = (tag) => {
 			return taskData.tags.some((item) => item === tag);
 		};
