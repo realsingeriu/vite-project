@@ -18,7 +18,7 @@ function TaskForm({setTasks}) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(taskData);
+		// console.log(taskData);
 		setTasks((prev) => {
 			return [...prev, taskData]; // 새 task 추가 
 		});
