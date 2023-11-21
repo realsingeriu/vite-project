@@ -20,14 +20,22 @@ function App() {
 		const newTasks = tasks.filter((task, index) => index !== taskIndex);
 		setTasks(newTasks);
 	};
+  // 메모 기능 추가 
+  const handleMemoChange = (taskIndex, memo) => {
+    const updatedTasks = tasks.map((task, index) =>
+      index === taskIndex ? { ...task, memo } : task
+    );
+    setTasks(updatedTasks);
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks)); // 메모 로컬 저장
+  };
 
   return (
     <div className='app'>
     <TaskForm setTasks={setTasks} />
     <main className='app_main'>
-        <TaskColumn title='할 일' icon={todoIcon} tasks={tasks} status='todo' handleDelete={handleDelete} />
-				<TaskColumn title='진행중' icon={doingIcon} tasks={tasks} status='doing' handleDelete={handleDelete} />
-				<TaskColumn title='완 료' icon={doneIcon} tasks={tasks} status='done' handleDelete={handleDelete} />
+        <TaskColumn title='할 일' icon={todoIcon} tasks={tasks} status='todo' handleDelete={handleDelete} handleMemoChange={handleMemoChange} />
+				<TaskColumn title='진행중' icon={doingIcon} tasks={tasks} status='doing' handleDelete={handleDelete} handleMemoChange={handleMemoChange} />
+				<TaskColumn title='완 료' icon={doneIcon} tasks={tasks} status='done' handleDelete={handleDelete} handleMemoChange={handleMemoChange} />
     </main>
   </div>
   );

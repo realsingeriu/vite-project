@@ -2,7 +2,7 @@
 import TaskCard from './TaskCard';
 import './TaskColumn.css';
 
-export default function TaskColumn({ title, icon, tasks, status, handleDelete }) {
+export default function TaskColumn({ title, icon, tasks, status, handleDelete, handleMemoChange }) {
 	return (
 		<section className='task_column'>
 			<h2 className='task_column_heading'>
@@ -12,7 +12,7 @@ export default function TaskColumn({ title, icon, tasks, status, handleDelete })
 			{tasks.length > 0
 				? tasks.map(
 					(task, index) =>
-						task.status === status && <TaskCard key={index} title={task.task} tags={task.tags}  handleDelete={handleDelete} index={index} />
+						task.status === status && <TaskCard key={index} title={task.task} tags={task.tags}  handleDelete={handleDelete} index={index} handleMemoChange={handleMemoChange} />
 				)
 			: null}
       

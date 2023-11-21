@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
 
 /* 초기화 코드 */
 * {
@@ -8,7 +8,5 @@
 }
 
 body {
-	
-	font-family: 'Bagel Fat One', cursive;
-	font-weight: 200;
+	font-family: 'Stylish', serif;
 }

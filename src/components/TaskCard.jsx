@@ -1,8 +1,21 @@
 import Tag from './Tag';
 import deleteIcon from '../assets/delete.png';
+import React, {useState} from 'react';
 import './TaskCard.css';
 
-export default function TaskCard({ title, tags, handleDelete, index }) {
+export default function TaskCard({ title, tags, handleDelete, index, handleMemoChange}) {
+	
+	const [editMemo, setEditMemo] = useState(false);
+  const [memo, setMemo] = useState('');
+	
+	const handleMemoEdit = () => {
+    setEditMemo(true);
+  };
+
+  const handleMemoSave = () => {
+    setEditMemo(false);
+    handleMemoChange(index, memo);
+  };
 	return (
 		<article className='task_card'>
 			<p className='task_text'>{title}</p>
@@ -16,6 +29,31 @@ export default function TaskCard({ title, tags, handleDelete, index }) {
 					
 					
 				</div>
+				{/* 메모 기능 추가  */}
+				<div className='task_memo'>
+          {editMemo ? (
+            <>
+              <textarea
+                value={memo}
+                onChange={(e) => setMemo(e.target.value)}
+              />
+              <button onClick={handleMemoSave}>저장</button>
+            </>
+          ) : (
+            <>
+             <div onClick={handleMemoEdit}>
+                {memo ? (
+                  <>
+                    <strong>Memo:</strong> {memo}
+                  </>
+                ) : (
+                  'Add a memo...'
+                )}
+              </div>
+            </>
+          )}
+        </div>
+
 				<div className='task_delete'>
 					<img onClick={() => handleDelete(index)} className='delete_icon' src={deleteIcon} alt='' />
 				</div>

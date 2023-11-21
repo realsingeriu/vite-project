@@ -7,6 +7,7 @@ function TaskForm({setTasks}) {
 		task: '',
 		status: 'todo',
 		tags: [],
+		memo: '', // 메모 기능 추가 
 	});
 
 	const handleChange = (e) => {
@@ -27,6 +28,7 @@ function TaskForm({setTasks}) {
 			task: '',
 			status: 'todo',
 			tags: [],
+			memo: '', // 메모 기능 추가 
 		});
 	};
 
@@ -85,6 +87,14 @@ function TaskForm({setTasks}) {
 					</div>
 				</div>
 			</form>
+
+			{/* Display Memo Content */}
+      {taskData.memo && (
+        <div className='memo_display'>
+          <strong>Memo:</strong> {taskData.memo}
+        </div>
+      )}
+			
 		</header>
 	);
 }
