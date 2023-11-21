@@ -16,8 +16,8 @@ export default function TaskCard({ title, tags, handleDelete, index }) {
 					
 					
 				</div>
-				<div className='task_delete' onClick={() => handleDelete(index)}>
-					<img className='delete_icon' src={deleteIcon} alt='' />
+				<div className='task_delete'>
+					<img onClick={() => handleDelete(index)} className='delete_icon' src={deleteIcon} alt='' />
 				</div>
 			</div>
 		</article>
